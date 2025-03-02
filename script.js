@@ -1,6 +1,24 @@
 const myDate = new Date();
 
-console.log(myDate.getDay('en-GB'))
+console.log(myDate.toLocaleTimeString('en-GB'))
+
+document.getElementById('date-1').innerText= myDate.toDateString()
+
+
+const mydate = document.getElementsByClassName('date');
+
+
+for(const date of mydate){
+
+    const currentDate = date;
+
+    currentDate.innerText = myDate.toDateString();
+}
+
+
+
+
+
 
 
 
@@ -39,7 +57,28 @@ for(let i = 0; i< CompletedBtn.length; i++){
 
        
 
-       console.log(copBtn.parentElement.parentElement.firstElementChild.nextElementSibling.innerText)
+       const title = copBtn.parentElement.parentElement.firstElementChild.nextElementSibling.innerText;
+
+       const compHistory = document.getElementById('comp-history');
+
+       const div = document.createElement('div');
+
+       div.classList.add('mydiv')
+
+       const p = document.createElement('p');
+
+       p.innerText = "You have complete the task " + title + "at : "+ myDate.toLocaleTimeString('en-GB',{  hour12: true });
+
+
+       div.appendChild(p);
+
+
+       compHistory.appendChild(div)
+
+
+      
+
+
 
     })
 }
@@ -47,8 +86,45 @@ for(let i = 0; i< CompletedBtn.length; i++){
 
 
 
+document.getElementById('cleat-history-btn').addEventListener('click', function(){
+
+    const compHistory = document.getElementById('comp-history');
+
+    compHistory.innerHTML = `
+    <div>
+    
+    </div>
+    `       
 
 
+
+
+})
+
+
+
+function getRandomColor (){
+
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+
+    for(let i= 0; i<6; i++){
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+
+    return color;
+
+}
+
+function setRandomColor(){
+
+
+    const randomColor = document.getElementById('random-color');
+
+    randomColor.style.backgroundColor = getRandomColor();
+
+    
+}
 
 
 

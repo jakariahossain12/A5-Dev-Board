@@ -98,5 +98,5 @@ document.getElementById('Discover-something').addEventListener('click',function(
 })
 
 
-document.querySelectorAll()
+
 
